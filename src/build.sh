@@ -14,6 +14,8 @@ fi
 current_dir="$PWD"
 echo $DISTRO > .distro_zab.txt
 sudo apt update; sudo apt install git -y
+# Clone linux-on-ibm-z to keep it current
+git clone https://github.com/linux-on-ibm-z/scripts.git /tmp/linux-on-ibm-z
 bash /tmp/linux-on-ibm-z-scripts/Doxygen/${version}/build_doxygen.sh -y
 tar cvfz doxygen-${version}-linux-s390x.tar.gz -C $PWD/doxygen/build bin examples html man doxygen_manual-${version}.pdf.zip Makefile 
 exit 0
